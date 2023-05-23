@@ -1,4 +1,5 @@
 import React from 'react';
+import StyledStatistics from './Statistics.components';
 import PropTypes from 'prop-types';
 
 export const Statistics = ({
@@ -8,32 +9,26 @@ export const Statistics = ({
   total,
   positivePercentage,
 }) => (
-  <div>
-    <table>
+  <>
+    <StyledStatistics.Table>
+      <thead>
+        <tr>
+          <StyledStatistics.Th>Good:</StyledStatistics.Th>
+          <StyledStatistics.Th>Neutral:</StyledStatistics.Th>
+          <StyledStatistics.Th>Bad:</StyledStatistics.Th>
+        </tr>
+      </thead>
       <tbody>
         <tr>
-          <td>Good:</td>
-          <td>{good}</td>
-        </tr>
-        <tr>
-          <td>Neutral:</td>
-          <td>{neutral}</td>
-        </tr>
-        <tr>
-          <td>Bad:</td>
-          <td>{bad}</td>
-        </tr>
-        <tr>
-          <td>Total:</td>
-          <td>{total}</td>
-        </tr>
-        <tr>
-          <td>Positive:</td>
-          <td>{positivePercentage}%</td>
+          <StyledStatistics.Td>{good}</StyledStatistics.Td>
+          <StyledStatistics.Td>{neutral}</StyledStatistics.Td>
+          <StyledStatistics.Td>{bad}</StyledStatistics.Td>
         </tr>
       </tbody>
-    </table>
-  </div>
+    </StyledStatistics.Table>
+    <StyledStatistics.P>Total: {total}</StyledStatistics.P>
+    <StyledStatistics.P>Positive: {positivePercentage}%</StyledStatistics.P>
+  </>
 );
 
 Statistics.propTypes = {
